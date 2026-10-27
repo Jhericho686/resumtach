@@ -234,7 +234,7 @@ const ApplicationSubmit = () => {
             <Briefcase size={22} />
           </div>
           <div className="space-y-1 flex-1 min-w-0">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-gray-400">Position Target</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Position Target</span>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
               {job?.title}
             </h2>

@@ -279,7 +279,7 @@ const ApplicantDashboard = () => {
         <SpotlightCard className="lg:col-span-4 p-6 flex flex-col justify-between" glowColor="rgba(59, 130, 246, 0.16)">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400">
+              <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                 ATS Match Readiness
               </span>
               <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
@@ -348,7 +348,7 @@ const ApplicantDashboard = () => {
           <div>
             <div className="flex items-center justify-between mb-5">
               <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
                   <Activity size={13} className="text-indigo-500" /> Pipeline Velocity
                 </span>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mt-1">
@@ -367,7 +367,7 @@ const ApplicantDashboard = () => {
             {/* Pipeline Stage Funnel Nodes */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
               <div className="p-4 rounded-xl bg-gray-50/80 dark:bg-white/[0.03] border border-gray-200/50 dark:border-white/[0.06] relative overflow-hidden group">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 block mb-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 block mb-1">
                   01 Submitted
                 </span>
                 <div className="flex items-baseline gap-2">
@@ -382,7 +382,7 @@ const ApplicantDashboard = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-gray-50/80 dark:bg-white/[0.03] border border-gray-200/50 dark:border-white/[0.06] relative overflow-hidden group">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-500 block mb-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-500 block mb-1">
                   02 Screening
                 </span>
                 <div className="flex items-baseline gap-2">
@@ -397,7 +397,7 @@ const ApplicantDashboard = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-gray-50/80 dark:bg-white/[0.03] border border-gray-200/50 dark:border-white/[0.06] relative overflow-hidden group">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-500 block mb-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-500 block mb-1">
                   03 Approved
                 </span>
                 <div className="flex items-baseline gap-2">
@@ -412,7 +412,7 @@ const ApplicantDashboard = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-gray-50/80 dark:bg-white/[0.03] border border-gray-200/50 dark:border-white/[0.06] relative overflow-hidden group">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-rose-500 block mb-1">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-rose-500 block mb-1">
                   04 Archived
                 </span>
                 <div className="flex items-baseline gap-2">
@@ -547,11 +547,11 @@ const ApplicantDashboard = () => {
           {/* Spotlight Role Recommendations */}
           <SpotlightCard className="p-5" glowColor="rgba(168, 85, 247, 0.14)">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
-                <Flame size={13} className="text-purple-500" /> Recommended For You
+              <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                <Flame size={13} className="text-purple-500" /> Featured Openings
               </span>
               <span className="text-[10px] font-bold text-purple-600 dark:text-purple-400">
-                AI Match Feed
+                Active Roles
               </span>
             </div>
 
@@ -563,12 +563,12 @@ const ApplicantDashboard = () => {
                     to={`/jobs/${j.id}`}
                     className="block p-3 rounded-xl bg-gray-50/70 dark:bg-white/[0.03] border border-gray-200/50 dark:border-white/[0.06] hover:border-purple-500/30 transition-all group"
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-2">
                       <h5 className="text-xs font-bold text-gray-900 dark:text-white truncate group-hover:text-purple-600 dark:group-hover:text-purple-400">
                         {j.title}
                       </h5>
-                      <span className="text-[10px] font-bold font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 shrink-0">
-                        94% Match
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 border border-purple-200/50 dark:border-purple-800/40 shrink-0">
+                        {j.type || j.jobType || 'Open Position'}
                       </span>
                     </div>
                     <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-1 truncate">

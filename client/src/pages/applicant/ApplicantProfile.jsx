@@ -608,7 +608,7 @@ const ApplicantProfile = () => {
                 {/* Contact Pills Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-gray-100 dark:border-white/[0.06]">
                   <div className="p-3 rounded-xl bg-gray-50/70 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.05]">
-                    <span className="text-[10px] uppercase font-mono tracking-wider text-gray-400 block mb-0.5">
+                    <span className="text-[11px] uppercase font-semibold tracking-wider text-gray-400 block mb-0.5">
                       Email Address
                     </span>
                     <span className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate block">
@@ -617,7 +617,7 @@ const ApplicantProfile = () => {
                   </div>
 
                   <div className="p-3 rounded-xl bg-gray-50/70 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.05]">
-                    <span className="text-[10px] uppercase font-mono tracking-wider text-gray-400 block mb-0.5">
+                    <span className="text-[11px] uppercase font-semibold tracking-wider text-gray-400 block mb-0.5">
                       Phone Number
                     </span>
                     <span className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate block">
@@ -626,7 +626,7 @@ const ApplicantProfile = () => {
                   </div>
 
                   <div className="p-3 rounded-xl bg-gray-50/70 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.05]">
-                    <span className="text-[10px] uppercase font-mono tracking-wider text-gray-400 block mb-0.5">
+                    <span className="text-[11px] uppercase font-semibold tracking-wider text-gray-400 block mb-0.5">
                       Location
                     </span>
                     <span className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate block">
