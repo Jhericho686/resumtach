@@ -181,8 +181,7 @@ const ApplicantDashboard = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <Sparkles size={13} className="text-primary-600 dark:text-primary-400" />
-            <span>AI Talent Radar Active</span>
+            <span>Talent Radar Active</span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
@@ -252,8 +251,7 @@ const ApplicantDashboard = () => {
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-sm font-black tracking-tight text-emerald-950 dark:text-emerald-100 flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-emerald-500" />
+                  <h3 className="text-sm font-black tracking-tight text-emerald-950 dark:text-emerald-100">
                     Hang tight! You have {stats.approved} application{stats.approved > 1 ? 's' : ''} approved — the HR team will call or email you soon!
                   </h3>
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
@@ -281,8 +279,8 @@ const ApplicantDashboard = () => {
         <SpotlightCard className="lg:col-span-4 p-6 flex flex-col justify-between" glowColor="rgba(59, 130, 246, 0.16)">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
-                <Sparkles size={13} className="text-primary-600 dark:text-primary-400" /> ATS Match Readiness
+              <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-gray-500 dark:text-gray-400">
+                ATS Match Readiness
               </span>
               <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                 hasResume ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20' : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20'

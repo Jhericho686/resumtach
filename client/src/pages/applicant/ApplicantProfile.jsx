@@ -431,7 +431,7 @@ const ApplicantProfile = () => {
           <SpotlightCard className="p-6 sm:p-7" glowColor="rgba(59, 130, 246, 0.14)">
             <div className="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-white/[0.06] mb-6">
               <div className="flex items-center gap-2">
-                <Sparkles size={16} className="text-primary-600 dark:text-primary-400" />
+                <User size={16} className="text-primary-600 dark:text-primary-400" />
                 <h2 className="text-sm font-bold uppercase tracking-wider text-gray-900 dark:text-white">
                   Personal Information
                 </h2>
@@ -829,7 +829,7 @@ const ApplicantProfile = () => {
           {/* Pro Tip Card */}
           <SpotlightCard className="p-5" glowColor="rgba(245, 158, 11, 0.12)">
             <div className="flex items-center gap-2 text-amber-500 mb-2">
-              <Sparkles size={16} />
+              <Zap size={16} />
               <h4 className="text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white">
                 ATS Matching Advice
               </h4>

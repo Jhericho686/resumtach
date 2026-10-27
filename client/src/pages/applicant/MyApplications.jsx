@@ -389,8 +389,7 @@ const MyApplications = () => {
                           </div>
                           <div>
                             <div className="flex flex-wrap items-center gap-2">
-                              <h4 className="text-xs sm:text-sm font-black text-emerald-950 dark:text-emerald-100 flex items-center gap-1.5">
-                                <Sparkles size={14} className="text-emerald-500" />
+                              <h4 className="text-xs sm:text-sm font-black text-emerald-950 dark:text-emerald-100">
                                 Hang tight! The HR team will call or email you soon
                               </h4>
                               <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
