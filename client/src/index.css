@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+/* Global Select & Option dark/light mode visibility */
+html.dark select,
+.dark select {
+  color-scheme: dark !important;
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+html.dark select option,
+.dark select option,
+html.dark select optgroup,
+.dark select optgroup {
+  background-color: #1f2937 !important; /* gray-800 */
+  color: #f9fafb !important;             /* gray-50 */
+}
+
+select option,
+select optgroup {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-primary-500 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  
+  .input-field {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+  }
+  
+  .card {
+    @apply bg-white shadow rounded-lg overflow-hidden dark:bg-gray-800 dark:border-gray-700;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full dark:bg-gray-600;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* ========================================================
+   YANN UI/UX ANIMATION - LOGIN TO DASHBOARD TRANSITION
+   ======================================================== */
+
+/* Login card expanding/morphing out upon success */
+@keyframes yann-card-expand {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.95;
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+.animate-yann-card-expand {
+  animation: yann-card-expand 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+/* Sidebar slide-in from left with spring bounce */
+@keyframes yann-sidebar-reveal {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(4px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-yann-sidebar {
+  animation: yann-sidebar-reveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Topbar slide-in from top */
+@keyframes yann-topbar-reveal {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-yann-topbar {
+  animation: yann-topbar-reveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+/* Dashboard content cards staggered pop-in */
+@keyframes yann-content-stagger {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-2px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-yann-content {
+  animation: yann-content-stagger 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.yann-stagger-1 {
+  animation: yann-content-stagger 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.yann-stagger-2 {
+  animation: yann-content-stagger 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+.yann-stagger-3 {
+  animation: yann-content-stagger 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+}
+
+.yann-stagger-4 {
+  animation: yann-content-stagger 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
+}
+
+/* Modal Morph / Pop In */
+@keyframes yann-modal-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.01) translateY(-1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-yann-modal {
+  animation: yann-modal-pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Smooth Page Mount Fade & Slide */
+.animate-page-enter {
+  animation: yann-content-stagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
