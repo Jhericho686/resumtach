@@ -5,6 +5,7 @@
 @layer base {
   html {
     color-scheme: light;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   html.dark {
@@ -12,7 +13,10 @@
   }
 
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-gray-50 text-gray-900 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   .dark body {

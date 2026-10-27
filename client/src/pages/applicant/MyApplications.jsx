@@ -15,7 +15,13 @@ import {
   Calendar,
   CheckCircle2,
   XCircle,
-  Activity
+  Activity,
+  PhoneCall,
+  Sparkles,
+  Mail,
+  Check,
+  AlertCircle,
+  ArrowRight
 } from 'lucide-react';
 
 const containerVariants = {
@@ -301,6 +307,145 @@ const MyApplications = () => {
                         />
                       </Link>
                     </div>
+                  </div>
+
+                  {/* Stage Progress & Next Steps Tracker */}
+                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700/60 space-y-3">
+                    {/* Visual 4-Step Stepper */}
+                    <div className="hidden sm:flex items-center justify-between text-xs font-medium px-2">
+                      {/* Step 1: Submitted */}
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold">
+                          <Check size={12} />
+                        </div>
+                        <span className="text-gray-900 dark:text-gray-200 font-bold">Submitted</span>
+                      </div>
+
+                      <div className={`flex-1 h-0.5 mx-3 ${app.status === 'rejected' ? 'bg-gray-200 dark:bg-gray-700' : 'bg-emerald-500/80'}`} />
+
+                      {/* Step 2: HR Screening */}
+                      <div className="flex items-center gap-2">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                          app.status === 'pending' || app.status === 'under_review'
+                            ? 'bg-amber-500 text-white ring-4 ring-amber-500/20 animate-pulse'
+                            : app.status === 'approved'
+                            ? 'bg-emerald-500 text-white'
+                            : 'bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                        }`}>
+                          {app.status === 'approved' ? <Check size={12} /> : '2'}
+                        </div>
+                        <span className={app.status === 'pending' || app.status === 'under_review' ? 'text-amber-600 dark:text-amber-400 font-bold' : 'text-gray-600 dark:text-gray-400'}>
+                          HR Screening
+                        </span>
+                      </div>
+
+                      <div className={`flex-1 h-0.5 mx-3 ${app.status === 'approved' ? 'bg-emerald-500/80' : 'bg-gray-200 dark:bg-gray-700'}`} />
+
+                      {/* Step 3: Shortlisted */}
+                      <div className="flex items-center gap-2">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                          app.status === 'approved'
+                            ? 'bg-emerald-500 text-white ring-4 ring-emerald-500/20'
+                            : app.status === 'rejected'
+                            ? 'bg-rose-500 text-white'
+                            : 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                        }`}>
+                          {app.status === 'approved' ? <Check size={12} /> : app.status === 'rejected' ? <XCircle size={12} /> : '3'}
+                        </div>
+                        <span className={app.status === 'approved' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : 'text-gray-600 dark:text-gray-400'}>
+                          Shortlisted
+                        </span>
+                      </div>
+
+                      <div className={`flex-1 h-0.5 mx-3 ${app.status === 'approved' ? 'bg-emerald-500/80' : 'bg-gray-200 dark:bg-gray-700'}`} />
+
+                      {/* Step 4: HR Interview Call */}
+                      <div className="flex items-center gap-2">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                          app.status === 'approved'
+                            ? 'bg-indigo-600 text-white ring-4 ring-indigo-500/30 animate-pulse'
+                            : 'bg-gray-200 dark:bg-gray-700 text-gray-400'
+                        }`}>
+                          <PhoneCall size={11} />
+                        </div>
+                        <span className={app.status === 'approved' ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'text-gray-400'}>
+                          HR Call
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Next Steps Message Banner */}
+                    {app.status === 'approved' ? (
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-indigo-500/5 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+                        <div className="flex items-start gap-3">
+                          <div className="relative mt-0.5 shrink-0">
+                            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                              <PhoneCall size={18} />
+                            </div>
+                            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                            </span>
+                          </div>
+                          <div>
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="text-xs sm:text-sm font-black text-emerald-950 dark:text-emerald-100 flex items-center gap-1.5">
+                                <Sparkles size={14} className="text-emerald-500" />
+                                Hang tight! The HR team will call or email you soon
+                              </h4>
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
+                                Next Step Ready
+                              </span>
+                            </div>
+                            <p className="text-xs text-emerald-800/90 dark:text-emerald-200/80 mt-1 leading-relaxed">
+                              Great news! Your qualifications have been accepted by the hiring manager. The HR team is scheduling initial interviews. Please keep your phone reachable and check your registered email inbox regularly.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex sm:flex-col items-center sm:items-end gap-1 shrink-0 text-[11px] font-mono text-emerald-700 dark:text-emerald-300 bg-white/60 dark:bg-black/20 px-3 py-1.5 rounded-lg border border-emerald-500/20 self-start sm:self-center">
+                          <span className="flex items-center gap-1.5 font-bold">
+                            <PhoneCall size={12} /> Expected Call Soon
+                          </span>
+                          <span className="text-[10px] text-gray-500 dark:text-gray-400">
+                            Keep line active
+                          </span>
+                        </div>
+                      </div>
+                    ) : app.status === 'rejected' ? (
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-gray-100/70 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700 flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <XCircle size={16} />
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-gray-800 dark:text-gray-300">
+                            Evaluation Concluded for this Opening
+                          </h4>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
+                            Thank you for your application. This position has progressed with another candidate, but your profile remains in our talent network for future matching openings.
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <Clock size={16} />
+                          </div>
+                          <div>
+                            <h4 className="text-xs font-bold text-amber-950 dark:text-amber-200">
+                              HR Screening in Progress
+                            </h4>
+                            <p className="text-xs text-amber-800/80 dark:text-amber-300/80 mt-0.5 leading-relaxed">
+                              Your resume is currently in the recruitment queue. If your background matches the position requirements, HR will reach out with an interview invitation.
+                            </p>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-mono text-amber-700 dark:text-amber-400 shrink-0 self-start sm:self-center font-medium bg-amber-500/10 px-2 py-1 rounded-md">
+                          Est. 2-4 business days
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}

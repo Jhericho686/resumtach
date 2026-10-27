@@ -26,7 +26,8 @@ import {
   ShieldCheck,
   Check,
   Compass,
-  ArrowUpRight
+  ArrowUpRight,
+  PhoneCall
 } from 'lucide-react';
 
 const containerVariants = {
@@ -229,6 +230,46 @@ const ApplicantDashboard = () => {
               className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white shadow-sm transition-all shrink-0 self-start sm:self-auto"
             >
               Set Up Resume Now <ArrowRight size={13} />
+            </Link>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Shortlisted / HR Next Steps Callout Banner */}
+      {stats.approved > 0 && (
+        <motion.div
+          variants={itemVariants}
+          className="p-5 rounded-2xl bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-indigo-500/10 border border-emerald-500/30 text-emerald-950 dark:text-emerald-100 shadow-sm relative overflow-hidden backdrop-blur-md"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-3.5">
+              <div className="relative p-2.5 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
+                <PhoneCall size={22} />
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-sm font-black tracking-tight text-emerald-950 dark:text-emerald-100 flex items-center gap-1.5">
+                    <Sparkles size={14} className="text-emerald-500" />
+                    Hang tight! You have {stats.approved} application{stats.approved > 1 ? 's' : ''} approved — the HR team will call or email you soon!
+                  </h3>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
+                    Next Step: Interview
+                  </span>
+                </div>
+                <p className="text-xs text-emerald-800/85 dark:text-emerald-200/80 mt-1 max-w-2xl leading-relaxed">
+                  Congratulations! The hiring manager has shortlisted your application for direct recruitment. Keep your phone reachable and check your registered email for your interview schedule and preparation notes.
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/applicant/applications"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all shrink-0 self-start sm:self-auto"
+            >
+              <PhoneCall size={13} /> View Next Steps <ArrowRight size={13} />
             </Link>
           </div>
         </motion.div>
@@ -472,6 +513,12 @@ const ApplicantDashboard = () => {
                   </div>
 
                   <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+                    {app.status === 'approved' && (
+                      <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                        <PhoneCall size={10} /> Call Scheduled Soon
+                      </span>
+                    )}
+
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
                         app.status === 'approved'
